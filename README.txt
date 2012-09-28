@@ -1,4 +1,4 @@
 Description
 ===========
 
-This product setup a Ploomcake instance
+This product sets up a Ploomcake instance
