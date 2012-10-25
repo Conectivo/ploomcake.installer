@@ -50,7 +50,7 @@
         </div>
 
         <input type="text" name="site_id" size="20" id="site_id"
-               tal:attributes="value request/site_id|nothing" />
+               tal:attributes="value view/getDefaultId|nothing" />
       </div>
 
       <div class="field">

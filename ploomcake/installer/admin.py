@@ -21,6 +21,8 @@ import os, os.path
 from zope.component import getUtilitiesFor
 from ploomcake.core.install_util import IPloomCakeCake
 
+from Products.Archetypes.utils import shasattr
+
 class AddPloomcakeSite(AddPloneSite):
 
     def __call__(self):
@@ -34,6 +36,15 @@ class AddPloomcakeSite(AddPloneSite):
 
     def getCakes(self):
         return [util for utilname, util in getUtilitiesFor(IPloomCakeCake)]
+
+    def getDefaultId(self):
+        siteid = self.request.site_id
+        newsiteid = siteid
+        n = 0
+        while shasattr(self.context, newsiteid):
+            n += 1
+            newsiteid = siteid + str(n)
+        return newsiteid
     
 class Overview(OriginalOverview):
     pass

@@ -28,7 +28,7 @@ ADD_PLONE_SITE_HTML = '''
         action="&dtml-URL1;/@@ploomcake-addsite"
         style="text-align: right; margin-top:0.5em; margin-bottom:0em; margin-left:1em; float:right"
         target="_top">
-    <input type="hidden" name="site_id" value="ploomcake" />
+    <input type="hidden" name="site_id" value="Ploomcake" />
     <input type="submit" value="Add Ploomcake Site" />
   </form>
 </dtml-if>

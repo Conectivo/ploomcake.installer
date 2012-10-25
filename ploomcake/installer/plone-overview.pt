@@ -122,7 +122,7 @@
                       method="get"
                       action="#"
                       tal:attributes="action string:${context/absolute_url}/@@ploomcake-addsite">
-                    <input type="hidden" name="site_id" value="ploomcake" />
+                    <input type="hidden" name="site_id" value="Ploomcake" />
                     <input type="submit"
                            i18n:domain="ploomcake.installer"
                            i18n:attributes="value;"

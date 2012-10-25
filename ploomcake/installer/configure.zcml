@@ -27,7 +27,7 @@
   <browser:page
       for="OFS.Folder.Folder"
       name="ploomcake-addsite"
-      class="Products.CMFPlone.browser.admin.AddPloneSite"
+      class=".admin.AddPloomcakeSite"
       permission="zope2.ViewManagementScreens"
       template="ploomcake-addsite.pt"
       />
