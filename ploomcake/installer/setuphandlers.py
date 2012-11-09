@@ -20,7 +20,7 @@ ploomcake setup handlers.
 from Products.CMFQuickInstallerTool.interfaces import INonInstallable
 from Products.CMFPlone.interfaces import INonInstallable as INonInstallableProfile
 from zope.interface import implements
-
+from Products.CMFCore.utils import getToolByName
 
 class HiddenProducts(object):
     implements(INonInstallable)
@@ -60,17 +60,21 @@ def setupPortalContent(p):
     locale = locales.getLocale(*parts)
     target_language = base_language = locale.id.language
 
-    util = queryUtility(ITranslationDomain, 'ploomcake.installer')
-    if util is not None:
-        front_title = util.translate(u'front-title',
-                                   target_language=target_language,
-                                   default=front_page.title)
-        front_desc = util.translate(u'front-description',
-                           target_language=target_language,
-                           default=front_page.desc)
-        front_text= util.translate(u'front-text',
-                           target_language=target_language,
-                           default=front_page.text)
+    util = getToolByName(p, 'translation_service')
+	
+#    util = queryUtility(ITranslationDomain, 'ploomcake.installer')
+    front_title = util and util.translate(u'front-title', 'ploomcake.installer',
+                               target_language=target_language,
+							   context=p,
+                               default=front_page.title) or 'Ploomcake'
+    front_desc = util and util.translate(u'front-description', 'ploomcake.installer',
+                       target_language=target_language,
+					   context=p,
+                       default=front_page.desc) or ''
+    front_text= util and util.translate(u'front-text','ploomcake.installer',
+                       target_language=target_language,
+  					   context=p,
+                       default=front_page.text) or 'Congratulations !'
 
 
     existing = p.keys()

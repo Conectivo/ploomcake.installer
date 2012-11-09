@@ -4,7 +4,7 @@ Changelog
 0.11 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- there was a bug installing welcome page due to i18n: fixed [sithmel]
 
 
 0.10 (2012-10-25)
